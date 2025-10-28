@@ -1,0 +1,39 @@
+@use '../../scss/index' as *; 
+
+.logo {
+	position: absolute;
+	cursor: pointer;
+	top: 1%;
+	right: 1%;
+	--c: var(--color-white);
+	--w: .2rem;
+	--len: 10rem;
+	padding: 1rem;
+	background:
+		linear-gradient(90deg, var(--c), transparent) top left    / var(--len) var(--w) no-repeat,
+		linear-gradient(180deg, var(--c), transparent) top left    / var(--w) var(--len) no-repeat,
+		linear-gradient(270deg, var(--c), transparent) bottom right/ var(--len) var(--w) no-repeat,
+		linear-gradient(0deg,  var(--c), transparent) bottom right/ var(--w) var(--len) no-repeat;
+	&__title {
+		height: 100%;
+		width: 100%;
+		font-size: 5rem;
+		font-weight: 500;
+		font-family: var(--font-title);
+		color: var(--color-white) !important;
+		text-transform: uppercase;
+		line-height: 1.2;
+		text-align: center;
+	}
+	&__subtitle {
+		font-size: 2rem;
+		font-weight: 300;
+		font-family: var(--font-title);
+		color: var(--color-white) !important;
+		text-transform: lowercase;
+		line-height: 1.5;
+		text-align: right;
+	}
+}
+
+@import '../../scss/base/media';

@@ -1,0 +1,30 @@
+@use './scss/index' as *;
+
+* {
+    font-family: var(--font-text);
+    color: var(--color-black);
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    text-decoration: none;
+    border: none;
+    outline: none;
+}
+
+html {
+    font-size: 62.5%;
+    // overflow-x: hidden;
+    &.no-scroll {
+        overflow: hidden;
+    }
+}
+
+section {
+    min-height: 100vh;
+    // padding: 10rem 9% 2rem;
+    position: relative;
+    z-index: 1;
+}
+
+@import './scss/base/media';

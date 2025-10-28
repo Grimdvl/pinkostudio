@@ -1,0 +1,151 @@
+// @media (hover: none) {
+
+// }
+
+html {
+    font-size: 62.5%;
+}
+
+@media (max-width: 1200px) {
+    html {
+        font-size: 55%;
+    }
+    .header {
+        width: 54%;
+        padding: 3rem 0 0 4%;
+    }
+    .promo {
+        &__descr {
+            width: 54%;
+            padding: 15rem 4% 4rem;
+            &-title {
+                font-size: 3.5rem;
+            }
+            &-subtitle {
+                font-size: 1.9rem;
+            }
+        }
+        &__photo {
+            width: 46%;
+        }
+    }
+    .logo {
+        &__title {
+            font-size: 4rem;
+        }
+        &__subtitle {
+            font-size: 1.5rem;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .header {
+        width: 100%;
+        &__burger {
+            cursor: pointer;
+            position: absolute;
+            z-index: 4;
+            top: 2.2rem;
+            right: 4%;
+            height: 3rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            row-gap: .7rem;
+            &-menu {
+                display: block;
+                background-color: var(--color-white);
+                height: .3rem;
+                width: 3rem;
+                border-radius: .3rem;
+                transition: all .5s;
+            }
+            &.active &-menu:first-child {
+                transform: rotate(45deg);
+                position: relative;
+                top: 1rem;
+            }
+            &.active &-menu:nth-child(2) {
+                opacity: 0;
+            }
+            &.active &-menu:last-child {
+                transform: rotate(-45deg);
+                position: relative;
+                top: -1rem;
+            }
+        }
+        &__nav {
+                z-index: 3;
+                position: fixed;
+                background-color: var(--color-main);
+                top: 0;
+                right: -100%;
+                width: 100%;
+                height: 100vh;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                transition: right .5s;
+            &.active {
+                right: 0;
+            }
+        }
+    }
+    .logo {
+        --w: .1rem;
+        --len: 7rem;
+        &__title {
+            font-size: 3rem;
+        }
+        &__subtitle {
+            font-size: 1rem;
+        }
+    }
+    .promo {
+        flex-direction: column;
+        &__descr {
+            padding: 13rem 4% 4rem;
+            padding-top: 2rem;
+            align-items: center;
+            width: 100%;
+            .logo {
+                // --len: 5rem;
+                height: 10rem;
+                width: 17rem;
+                align-self: self-start;
+                .logo__title {
+                    font-size: 5rem;
+                }
+                .logo__subtitle {
+                    font-size: 2rem;
+                }
+            }
+            &-title {
+                text-align: center;
+                align-self: center;
+            }
+            &-subtitle {
+                text-align: center;
+                align-self: center;
+            }
+            &-buttons {
+                flex-direction: column;
+                margin-bottom: 4.8rem;
+                margin-top: 3.2rem;
+            }
+        }
+        &__photo {
+            width: 100%;
+            &-img {
+                height: 40rem;
+            }
+        }
+    }
+}
+
+@media (max-width: 576px) {
+    html {
+        font-size: 50%;
+    }
+}
