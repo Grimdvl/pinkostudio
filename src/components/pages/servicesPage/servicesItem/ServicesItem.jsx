@@ -22,7 +22,7 @@ const ServicesItem = ({className}) => {
 	return (
 		<>
 			{services.map(s => (
-				<div className={`services__items ${s.color == "dark" ? "dark" : ""}`}>
+				<div className={`services__items ${s.color === "dark" ? "dark" : ""}`}>
 				<div className="services__items-item" key={s.id}>
 					<h2 className="item-title">{s.title}</h2>
 					<p className="item-descr">{s.descr}</p>
