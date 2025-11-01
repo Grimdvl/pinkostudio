@@ -12,7 +12,7 @@ html {
     }
     .header {
         width: 54%;
-        padding: 3rem 0 0 4%;
+        padding: 3rem 4% 0 4%;
     }
     .promo {
         &__descr {
@@ -37,9 +37,25 @@ html {
             font-size: 1.5rem;
         }
     }
+    .services {
+        padding: 0 4%;
+        &__items {
+            height: 48rem;
+        }
+    }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 991px) {
+    .services {
+        &__items {
+            height: 44rem;
+            width: 44%;
+            padding: 2.5rem;
+        }
+    }
+}
+
+@media (max-width: 767px) {
     .header {
         width: 100%;
         &__burger {
@@ -140,6 +156,13 @@ html {
             &-img {
                 height: 40rem;
             }
+        }
+    }
+    .services {
+        &__items {
+            height: 33rem;
+            width: 100%;
+            padding: 1.5rem;
         }
     }
 }

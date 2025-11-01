@@ -1,3 +1,7 @@
+@use './../../../scss/index' as *;
+
 .services {
 	padding: 0 12%;
 }
+
+@import './../../../scss/base/media';

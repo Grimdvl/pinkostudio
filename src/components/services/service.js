@@ -31,7 +31,6 @@ const getAcf = async (pageId) => {
 const getCat = async (slug) => {
     const cats = await getResources(`categories?slug=${slug}&_fields=id,slug`);
     const catId = cats[0].id;
-    console.log('Category ID:', catId); //прибрати після тестування!!!
 
     return await getResources(
         `posts?categories=${catId}&per_page=50&_fields=id,slug,acf`

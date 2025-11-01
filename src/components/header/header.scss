@@ -5,7 +5,7 @@
 	top: 0;
 	left: 0;
 	width: 50%;
-	padding: 4rem 0 0 8%;
+	padding: 4rem 8% 0 8%;
 	&__nav {
 		display: flex;
 		justify-content: flex-start;
@@ -13,12 +13,14 @@
 		gap: 3rem;
 		list-style: none;
 		&-item {
+			display: flex;
 			position: relative;
 			font-family: var(--font-title);
 			color: var(--color-white) !important;
 			font-size: 1.5rem;
 			text-transform: uppercase;
 			cursor: pointer;
+			flex-wrap: nowrap;
 			&::after {
 				position: absolute;
 				content: '';
