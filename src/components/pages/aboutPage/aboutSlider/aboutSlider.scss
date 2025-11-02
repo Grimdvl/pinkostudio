@@ -1,0 +1,26 @@
+@use '../../../../scss/index' as *;
+
+.about__slider {
+	width: 50%;
+	// height: 100%;
+	max-height: 60rem;
+	padding-bottom: 2.1rem;
+	&-item {
+		height: 100%;
+		width: 100%;
+		object-fit: cover;
+	}
+	.swiper {
+		&-wrapper, &-scrollbar-drag {
+			will-change: transform;
+			transition-property: transform !important;
+			transition-duration: .1s !important;
+			transition-timing-function: ease-out !important;
+		}
+		&-scrollbar-drag {
+			background-color: var(--color-main);
+		}
+	}
+}
+
+@import '../../../../scss/base/media';

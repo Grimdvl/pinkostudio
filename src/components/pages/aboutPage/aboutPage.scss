@@ -1,0 +1,35 @@
+@use '../../../scss/index' as *;
+
+.about {
+	padding: 12rem 8%;
+	display: flex;
+    justify-content: space-between;
+	row-gap: 3rem;
+	background-color: var(--color-second);
+	&__text {
+		max-height: 60rem;
+		width: 42%;
+		display: flex;
+		flex-direction: column;
+		&-title, &-descr {
+			color: var(--color-white);
+		}
+		&-title {
+			text-align: center;
+			padding-bottom: 3.2rem;
+			font-size: 3.2rem;
+			font-weight: 600;
+			text-transform: uppercase;
+			letter-spacing: 0.03em;
+		}
+		&-descr {
+			line-height: 1.5;
+			font-weight: 300;
+			font-size: 1.6rem;
+			white-space: pre-line;
+			overflow: auto;
+		}
+	}
+}
+
+@import '../../../scss/base/media';

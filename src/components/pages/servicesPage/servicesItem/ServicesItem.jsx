@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import { getCat } from '../../../services/service';
 
 const ServicesItem = () => {
-	const [services, setServices] = useState([]);
+	const [items, setItems] = useState([]);
 
 	useEffect(() => {
 		getCat('services')
@@ -16,32 +16,31 @@ const ServicesItem = () => {
 					img: p.acf?.services_img,
 					color: p.acf?.services_color,
 				}));
-				setServices(mapped);
+				setItems(mapped);
 			})
 			.catch(console.error);
 	}, []);
 
 	return (
 		<>
-			{services.map(s => {
-				const isDark = s.color === "dark";
+		{items.map(i => {
+			const isDark = i.color === "dark";
+			const cardStyle = isDark ? {backgroundImage: i.img ? `url(${i.img})` : undefined} : undefined;
 
-				const cardStyle = isDark ? {backgroundImage: s.img ? `url(${s.img})` : undefined} : undefined;
-
-				return (
-					<div
-						key={s.id}
-						className={`services__items ${isDark ? "dark" : ""}`}
-						style={cardStyle}
-					>
-						<div className="services__items-item">
-							<h2 className="item-title">{s.title}</h2>
-							<p className="item-descr">{s.descr}</p>
-							{s.price ? <span className="item-price">₴{s.price}</span> : ''}
-						</div>
+			return (
+				<div
+					key={i.id}
+					className={`services__items ${isDark ? "dark" : ""}`}
+					style={cardStyle}
+				>
+					<div className="services__items-item">
+						<h2 className="item-title">{i.title}</h2>
+						<p className="item-descr">{i.descr}</p>
+						{i.price ? <span className="item-price">₴{i.price}</span> : ''}
 					</div>
-				);
-			})}
+				</div>
+			);
+		})}
 		</>
 	);
 };

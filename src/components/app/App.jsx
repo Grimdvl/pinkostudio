@@ -4,6 +4,7 @@ import { getResources } from '../services/service.js';
 import {
     PromoPage,
 	ServicesPage,
+	AboutPage,
 } from '../pages';
 
 const App = () => {
@@ -20,10 +21,11 @@ const App = () => {
 	}, []);
 
 	return (
-		<div className="app">
+		<main className="app">
 			<PromoPage />
 			<ServicesPage />
-		</div>
+			<AboutPage />
+		</main>
 	);
 }
 

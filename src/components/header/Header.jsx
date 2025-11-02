@@ -34,11 +34,11 @@ const Header = ({showNav, setShowNav}) => {
 				<span className="header__burger-menu"></span>
 			</div>
 			<ul className={`header__nav ${showNav ? 'active' : ''}`}>
-				<li id="about" className="header__nav-item about">{nav_about}</li>
-				<li id="team" className="header__nav-item team">{nav_team}</li>
-				<li id="reviews" className="header__nav-item reviews">{nav_reviews}</li>
-				<li id="portfolio" className="header__nav-item portfolio">{nav_portfolio}</li>
-				<li id="booking" className="header__nav-item booking">{nav_booking}</li>
+				<li id="about" className="header__nav-item">{nav_about}</li>
+				<li id="team" className="header__nav-item">{nav_team}</li>
+				<li id="reviews" className="header__nav-item">{nav_reviews}</li>
+				<li id="portfolio" className="header__nav-item">{nav_portfolio}</li>
+				<li id="booking" className="header__nav-item">{nav_booking}</li>
 			</ul>
         </nav>
     );

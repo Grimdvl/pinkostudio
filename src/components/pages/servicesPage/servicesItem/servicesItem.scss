@@ -56,16 +56,10 @@
 					font-size: 2.4rem;
 				}
 				&-descr {
-					min-height: 0;
 					font-weight: 500;
-					display: flex;
-					flex-direction: column;
-					row-gap: 1.5rem;
-					padding-bottom: 2.6rem;
 					font-size: 1.4rem;
 					white-space: pre-line;
 					overflow-y: hidden;
-					padding-right: 1rem;
 				}
 				&-price {
 					margin-top: 2rem;
