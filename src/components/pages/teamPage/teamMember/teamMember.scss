@@ -1,0 +1,38 @@
+@use '../../../../scss/index' as *;
+
+.team__members {
+	display: flex;
+    justify-content: space-between;
+    gap: 3rem;
+	&-wrapper {
+		height: 41rem;
+		width: 35rem;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		.member-name, .member-work {
+			width: 100%;
+			color: var(--color-white);
+			text-align: center;
+		}
+		.member-img {
+			height: 100%;
+			width: 100%;
+			flex: auto 1 1;
+			min-height: 0;
+			object-fit: cover;
+			border-radius: .3rem;
+		}
+		.member-name {
+			font-size: 2.4rem;
+			font-family: var(--font-title);
+			font-weight: normal;
+			padding: 1rem 0 .6rem;
+		}
+		.member-work {
+			font-size: 2rem;
+		}
+	}
+}
+
+@import '../../../../scss/base/media';

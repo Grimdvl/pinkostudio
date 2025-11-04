@@ -46,6 +46,15 @@ html {
     .about {
         padding: 8rem 4%;
     }
+    .team {
+        padding: 8rem 4%;
+        &__members {
+            &-wrapper {
+                width: 25rem;
+                height: 36rem;
+            }
+        }
+    }
 }
 
 @media (max-width: 991px) {
@@ -185,6 +194,12 @@ html {
         }
         &__slider {
             height: 40rem;
+        }
+    }
+    .team {
+        &__members {
+            justify-content: center;
+            flex-wrap: wrap;
         }
     }
 }

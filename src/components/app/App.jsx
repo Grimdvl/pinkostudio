@@ -5,6 +5,7 @@ import {
     PromoPage,
 	ServicesPage,
 	AboutPage,
+	TeamPage,
 } from '../pages';
 
 const App = () => {
@@ -25,6 +26,7 @@ const App = () => {
 			<PromoPage />
 			<ServicesPage />
 			<AboutPage />
+			<TeamPage />
 		</main>
 	);
 }

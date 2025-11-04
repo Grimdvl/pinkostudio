@@ -1,0 +1,18 @@
+@use '../../../scss/index' as *;
+
+.team {
+	padding: 12rem 8%;
+	background-color: var(--color-main);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+	&__title {
+		font-size: 3.2rem;
+		text-transform: uppercase;
+		color: var(--color-white);
+		padding-bottom: 3.2rem;
+	}
+}
+
+@import '../../../scss/base/media';
