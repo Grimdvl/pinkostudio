@@ -69,7 +69,6 @@
 					&:hover {
 						color: var(--color-main);
 						background-color: var(--color-white);
-						transition: background-color .5s, color .5s;
 					}
 				}
 			}
@@ -80,31 +79,6 @@
 				@media (hover: hover) {
 					&:hover {
 						background-color: #A37B731C;
-						transition: background-color .5s;
-					}
-				}
-			}
-		}
-		&-socials {
-			margin-top: auto; 
-			display: flex;
-			gap: 2rem;
-			.item {
-				display: flex;
-				justify-content: center;
-				align-items: center;
-				cursor: pointer;
-				height: 4.2rem;
-				width: 4.2rem;
-				&-icon {
-					font-size: 3rem;
-					color: var(--color-second);
-					transition: color .5s;
-					@media (hover: hover) {
-						&:hover {
-							color: var(--color-white);
-							transition: color .5s;
-						}
 					}
 				}
 			}

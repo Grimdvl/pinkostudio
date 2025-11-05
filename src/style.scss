@@ -26,9 +26,19 @@ section {
     bottom: unset;
     position: relative;
     z-index: 1;
-    &.section {
-        padding: 12rem 8%;
-    }
+}
+
+.section {
+    padding: 12rem 8%;
+}
+
+.title {
+    text-align: center;
+    padding-bottom: 3.2rem;
+    font-size: 3.2rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
 }
 
 @import './scss/base/media';

@@ -1,0 +1,10 @@
+@use '../../../scss/index' as *;
+
+.portfolio {
+	background-color: var(--color-white);
+	&__title {
+		color: var(--color-black);
+	}
+}
+
+@import '../../../scss/base/media';

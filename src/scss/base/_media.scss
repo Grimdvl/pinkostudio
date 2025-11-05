@@ -10,10 +10,8 @@ html {
     html {
         font-size: 55%;
     }
-    section {
-        &.section {
-            padding: 8rem 4%;
-        }
+    .section {
+        padding: 8rem 4%;
     }
     .header {
         width: 54%;
@@ -70,9 +68,15 @@ html {
     }
     .team {
         &__members {
+            gap: 3rem;
             &-wrapper {
                 width: 25rem;
                 height: 36rem;
+                .member__img-link {
+                    .bx-link {
+                        color: var(--color-main);
+                    }
+                }
             }
         }
     }

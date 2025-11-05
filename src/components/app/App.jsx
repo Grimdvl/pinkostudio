@@ -6,6 +6,7 @@ import {
 	ServicesPage,
 	AboutPage,
 	TeamPage,
+	PortfolioPage,
 } from '../pages';
 
 const App = () => {
@@ -27,6 +28,7 @@ const App = () => {
 			<ServicesPage />
 			<AboutPage />
 			<TeamPage />
+			<PortfolioPage/>
 		</main>
 	);
 }

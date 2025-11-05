@@ -18,7 +18,7 @@ const TeamPage = () => {
 
 	return (
 		<section className="team section" id="team">
-			<h2 className='team__title'>{team_title}</h2>
+			<h2 className='team__title title'>{team_title}</h2>
 			<TeamMember/>
 		</section>
 	);

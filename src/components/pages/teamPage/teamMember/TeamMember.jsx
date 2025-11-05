@@ -25,11 +25,23 @@ const TeamMember = () => {
 		<div className="team__members">
 			{items.map(i => (
 			<div className="team__members-wrapper">
-				<img
-					src={i.img || photo}
-					alt={i.alt}
-					className="member-img"
-				/>
+				<div className="member__img">
+					<img
+						src={i.img || photo}
+						alt={i.alt}
+						className="member__img-photo"
+					/>
+					<a
+						key={i.id}
+						className="member__img-link"
+						href={i.link}
+						alt={i.alt}
+						target="_blank"
+						rel="noreferrer"
+						>
+						<i class='bx bx-link'></i> 
+					</a>
+				</div>
 				<h3 className="member-name">{i.name}</h3>
 				<p className="member-work">{i.work}</p>
 			</div>
