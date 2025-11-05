@@ -10,6 +10,11 @@ html {
     html {
         font-size: 55%;
     }
+    section {
+        &.section {
+            padding: 8rem 4%;
+        }
+    }
     .header {
         width: 54%;
         padding: 3rem 4% 0 4%;
@@ -43,18 +48,6 @@ html {
             height: 48rem;
         }
     }
-    .about {
-        padding: 8rem 4%;
-    }
-    .team {
-        padding: 8rem 4%;
-        &__members {
-            &-wrapper {
-                width: 25rem;
-                height: 36rem;
-            }
-        }
-    }
 }
 
 @media (max-width: 991px) {
@@ -72,6 +65,14 @@ html {
             }
             &-descr {
                 font-size: 1.3rem;
+            }
+        }
+    }
+    .team {
+        &__members {
+            &-wrapper {
+                width: 25rem;
+                height: 36rem;
             }
         }
     }

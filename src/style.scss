@@ -21,10 +21,14 @@ html {
 }
 
 section {
-    min-height: 100vh;
-    // padding: 10rem 9% 2rem;
+    height: 100%;
+    right: unset;
+    bottom: unset;
     position: relative;
     z-index: 1;
+    &.section {
+        padding: 12rem 8%;
+    }
 }
 
 @import './scss/base/media';

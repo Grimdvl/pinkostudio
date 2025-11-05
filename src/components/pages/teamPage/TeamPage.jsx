@@ -17,7 +17,7 @@ const TeamPage = () => {
 	} = acf;
 
 	return (
-		<section className="team" id="team">
+		<section className="team section" id="team">
 			<h2 className='team__title'>{team_title}</h2>
 			<TeamMember/>
 		</section>

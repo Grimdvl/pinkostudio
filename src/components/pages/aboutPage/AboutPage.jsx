@@ -18,7 +18,7 @@ const AboutPage = () => {
 	} = acf;
 
 	return (
-		<section id="about" className="about">
+		<section id="about" className="about section">
 			<AboutSlider />
 			<div className="about__text">
 				<h2 className="about__text-title">{about_title}</h2>
