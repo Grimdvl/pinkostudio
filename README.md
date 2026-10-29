@@ -1,70 +1,62 @@
-# Getting Started with Create React App
+# Pinko Studio
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+React-сайт студії. Тексти, посилання та зображення основних секцій редагуються у WordPress через ACF.
 
-## Available Scripts
+## Запуск
 
-In the project directory, you can run:
+```bash
+npm install
+npm start
+```
 
-### `npm start`
+Локальний сайт відкривається на `http://localhost:3000/pinkostudio/`.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Щоб підготувати файли для хостингу:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+```bash
+npm run build
+```
 
-### `npm test`
+Готові файли з’являються в папці `build`. Поточне поле `homepage` у `package.json` налаштоване для GitHub Pages із шляхом `/pinkostudio/`; перед перенесенням на іншу адресу його потрібно узгодити з адресою сайту.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Де знаходиться код
 
-### `npm run build`
+- `src/index.js` підключає React до `#root` у `public/index.html`.
+- `src/components/app/App.jsx` задає порядок секцій і завантажує іконку вкладки з WordPress.
+- `src/components/pages/` містить секції: перший екран, послуги, про нас, команда, портфоліо та контакти.
+- `src/components/header/` містить меню, мобільну кнопку та керування відкритим меню.
+- `src/components/socials/` показує всі записи категорії `socials`. Посилання беруться з `social_link`, HTML-код іконок — із `social_img`.
+- `src/components/services/service.js` містить запити до WordPress.
+- `src/style.scss` містить загальні стилі. `src/scss/base/` — шрифти, кольори й адаптивні правила. Стилі конкретної секції лежать поруч із її компонентом.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+У коді залишені короткі українські коментарі: звідки беруться дані, для чого потрібен стан, що роблять обробники й таймери.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Як приходять дані WordPress
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+`getAcf(2)` отримує ACF-поля сторінки з ID `2`. Це ID самої сторінки WordPress, а не групи полів ACF. У компонентах потрібні поля дістаються з об’єкта `acf`.
 
-### `npm run eject`
+`getCat('socials')` або `getCat('portfolio_slider')` спочатку знаходить категорію за її слагом, потім отримує опубліковані записи цієї категорії. Додавання й видалення соцмереж керується записами WordPress; списку платформ чи запасних посилань у React немає.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Адреса API задається один раз змінною `wordpressRestRoot` у `service.js`.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Як влаштований слайдер портфоліо
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Список слайдів визначають лише опубліковані записи WordPress із категорії `portfolio_slider`. Поле `portfolio_link` містить посилання на Instagram; старе ім’я `portfolio_instagram_url` також підтримується. Поле `portfolio_photo` слайдер не використовує. Видалений із WordPress запис зникає зі слайдера.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+У папці `src/components/pages/portfolioPage/portfolioSlider/` залишаються два JavaScript-компоненти та один файл стилів:
 
-## Learn More
+- `PortfolioSlider.jsx` отримує записи WordPress, зіставляє Instagram-посилання зі збереженими даними, за потреби звертається до серверного API й керує перемиканням карток, анімацією та відкритим дописом. Дані шести вже підключених дописів збережені прямо в цьому файлі.
+- `InstagramEmbed.jsx` перевіряє посилання, показує картку з фото або відеопрев’ю та модальне вікно. На комп’ютері медіа розташовані ліворуч, а опис — праворуч; на телефоні вони йдуть один під одним. Тут також знаходиться керування відеопрев’ю та його паузою.
+- `portfolioSlider.scss` містить стилі карток, анімації, модального вікна й адаптивні правила.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Окремих JSON-файлів із даними, `instagramService.js`, файлів-помічників або тестів для слайдера немає. Спільні запити WordPress залишаються в `src/components/services/service.js`.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Звідки беруться фото, відео й описи
 
-### Code Splitting
+Для шести раніше підключених Instagram-посилань відновлені збережені фото, відео, підписи та дати. Медіафайли лежать у `public/media/instagram/`, а дані дописів — у `PortfolioSlider.jsx`. Це збережені копії попередніх дописів: вони не оновлюються автоматично з Instagram і не створюють додаткових слайдів. Кожна копія використовується лише тоді, коли відповідний URL є серед поточних записів WordPress. Один довгий підпис збережений стислим переказом; це позначено в його даних. Коментарі не показуються.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Ці копії потрібні для поточного власного вигляду карток і модального вікна, оскільки робочий доступ до серверного Instagram API зараз не налаштований. Видалення самих медіафайлів позбавить ці картки фото й відео.
 
-### Analyzing the Bundle Size
+Для нового URL без збереженої копії слайдер пробує отримати дані з WordPress API Instagram. Якщо API не налаштований або запит не вдався, залишається стандартний Instagram iframe. Його оформлення та вміст контролює Instagram.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Для майбутнього автоматичного отримання медіа доступна [інструкція WordPress](wordpress/README.md). Токени зберігаються лише на WordPress-сервері.

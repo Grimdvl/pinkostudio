@@ -1,9 +1,11 @@
 @use '../../scss/index' as *;
 
+// Ряд іконок соцмереж у першій секції.
 .socials {
-	margin-top: auto; 
+	margin-top: auto;
 	display: flex;
 	gap: 2rem;
+
 	&__item {
 		display: flex;
 		justify-content: center;
@@ -11,10 +13,12 @@
 		cursor: pointer;
 		height: 4.2rem;
 		width: 4.2rem;
+
 		&-icon {
 			font-size: 3rem;
 			color: var(--color-second);
 			transition: color .5s;
+
 			@media (hover: hover) {
 				&:hover {
 					color: var(--color-white);

@@ -1,5 +1,7 @@
 @use '../../../../scss/index' as *;
 
+// Вигляд фотографій і смуги прокручування слайдера «Про нас».
+
 .about__slider {
 	width: 50%;
 	max-height: 60rem;
@@ -12,9 +14,7 @@
 	.swiper {
 		&-wrapper, &-scrollbar-drag {
 			will-change: transform;
-			transition-property: transform !important;
-			transition-duration: .1s !important;
-			transition-timing-function: ease-out !important;
+			transition-timing-function: ease-out;
 		}
 		&-scrollbar-drag {
 			background-color: var(--color-main);

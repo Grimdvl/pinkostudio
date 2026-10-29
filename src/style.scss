@@ -1,44 +1,47 @@
 @use './scss/index' as *;
 
+// Спільне скидання браузерних відступів та базове оформлення елементів.
 * {
-    font-family: var(--font-text);
-    color: var(--color-black);
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    scroll-behavior: smooth;
-    text-decoration: none;
-    border: none;
-    outline: none;
+	font-family: var(--font-text);
+	color: var(--color-black);
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	scroll-behavior: smooth;
+	text-decoration: none;
+	border: none;
+	outline: none;
 }
 
+// Базовий розмір шрифту для rem; клас no-scroll вмикає мобільне меню.
 html {
-    font-size: 62.5%;
-    // overflow-x: hidden;
-    &.no-scroll {
-        overflow: hidden;
-    }
+	font-size: 62.5%;
+	&.no-scroll {
+		overflow: hidden;
+	}
 }
 
 section {
-    height: 100%;
-    right: unset;
-    bottom: unset;
-    position: relative;
-    z-index: 1;
+	height: 100%;
+	right: unset;
+	bottom: unset;
+	position: relative;
+	z-index: 1;
 }
 
+// Спільні відступи секцій.
 .section {
-    padding: 12rem 8%;
+	padding: 12rem 8%;
 }
 
+// Спільний вигляд заголовків секцій.
 .title {
-    text-align: center;
-    padding-bottom: 3.2rem;
-    font-size: 3.2rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.03em;
+	text-align: center;
+	padding-bottom: 3.2rem;
+	font-size: 3.2rem;
+	font-weight: 600;
+	text-transform: uppercase;
+	letter-spacing: 0.03em;
 }
 
 @import './scss/base/media';

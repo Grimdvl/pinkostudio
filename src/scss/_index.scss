@@ -1,5 +1,6 @@
+// Цей файл збирає спільні змінні, міксини, анімації та шрифти.
+// Адаптивні правила підключаються окремо наприкінці SCSS-файлів секцій.
 @forward 'base/variables';
 @forward 'base/mixins';
 @forward 'base/animations';
 @forward 'base/fonts';
-// @forward 'base/media';

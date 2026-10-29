@@ -1,7 +1,11 @@
 @use '../../../scss/index' as *;
 
+// Обгортка портфоліо. Стилі самого слайдера лежать у папці portfolioSlider.
+
 .portfolio {
+	overflow: hidden;
 	background-color: var(--color-white);
+
 	&__title {
 		color: var(--color-black);
 	}

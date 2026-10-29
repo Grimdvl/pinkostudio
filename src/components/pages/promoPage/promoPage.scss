@@ -1,5 +1,7 @@
 @use '../../../scss/index' as *;
 
+// Перша секція: меню, текст, кнопки, соціальні мережі та велике фото.
+
 .promo {
 	display: flex;
 	justify-content: space-between;
@@ -12,7 +14,7 @@
 		flex-direction: column;
 		.logo {
 			top: 0% !important;
-    		right: 0% !important;
+			right: 0% !important;
 			height: 15rem;
 			width: 25rem;
 			display: flex;

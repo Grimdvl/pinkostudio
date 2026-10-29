@@ -1,21 +1,23 @@
-import './servicesItem.scss';
+import "./servicesItem.scss";
 import { useState, useEffect } from 'react';
 import { getCat } from '../../../services/service';
 
 const ServicesItem = () => {
 	const [items, setItems] = useState([]);
 
+	// Беремо всі картки послуг із категорії services, включно з фото, ціною та кольором.
 	useEffect(() => {
 		getCat('services')
 			.then(posts => {
-				const mapped = (Array.isArray(posts) ? posts : []).map(p => ({
-					id: p.id,
-					title: p.acf?.services_title,
-					descr: p.acf?.services_descr,
-					price: p.acf?.services_price,
-					img: p.acf?.services_img,
-					color: p.acf?.services_color,
+				const mapped = (Array.isArray(posts) ? posts : []).map(post => ({
+					id: post.id,
+					title: post.acf?.services_title,
+					descr: post.acf?.services_descr,
+					price: post.acf?.services_price,
+					img: post.acf?.services_img,
+					color: post.acf?.services_color,
 				}));
+
 				setItems(mapped);
 			})
 			.catch(console.error);
@@ -23,24 +25,25 @@ const ServicesItem = () => {
 
 	return (
 		<>
-		{items.map(i => {
-			const isDark = i.color === "dark";
-			const cardStyle = isDark ? {backgroundImage: i.img ? `url(${i.img})` : undefined} : undefined;
+			{items.map(item => {
+				// Фото тлом використовується тільки для темної картки.
+				const isDark = item.color === 'dark';
+				const cardStyle = isDark ? { backgroundImage: item.img ? `url(${item.img})` : undefined } : undefined;
 
-			return (
-				<div
-					key={i.id}
-					className={`services__items ${isDark ? "dark" : ""}`}
-					style={cardStyle}
-				>
-					<div className="services__items-item">
-						<h2 className="item-title">{i.title}</h2>
-						<p className="item-descr">{i.descr}</p>
-						{i.price ? <span className="item-price">₴{i.price}</span> : ''}
+				return (
+					<div
+						key={item.id}
+						className={`services__items ${isDark ? 'dark' : ''}`}
+						style={cardStyle}
+					>
+						<div className="services__items-item">
+							<h2 className="item-title">{item.title}</h2>
+							<p className="item-descr">{item.descr}</p>
+							{item.price ? <span className="item-price">₴{item.price}</span> : ''}
+						</div>
 					</div>
-				</div>
-			);
-		})}
+				);
+			})}
 		</>
 	);
 };

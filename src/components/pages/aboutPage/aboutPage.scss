@@ -1,8 +1,10 @@
 @use '../../../scss/index' as *;
 
+// Секція «Про нас»: слайдер фотографій та текст із WordPress.
+
 .about {
 	display: flex;
-    justify-content: space-between;
+	justify-content: space-between;
 	row-gap: 3rem;
 	background-color: var(--color-second);
 	&__text {

@@ -1,23 +1,12 @@
 :root {
-    // --color-main: #F61983;
-    // --color-second: #191B37;
-    --color-black: #0D0007;
-    --color-white: #EEF0F2;
+	// Основні кольори сайту використовуються в усіх SCSS-файлах через var(...).
+	--color-black: #0D0007;
+	--color-white: #EEF0F2;
+	--color-main: #3f292b;
+	--color-second: #a37b73;
 
-    // --color-second: #F61983;
-    // --color-main: #191B37;
-
-
-    --color-main: #3f292b;
-    --color-second: #a37b73;
-
-    // --color-main: #F61983;
-    // --color-second: #B8948F;
-
-    // --color-main: #191B37;
-    // --color-second: #F61983;
-
-    --font-title: "Alegreya", serif;
+	// Шрифти для заголовків, основного тексту й чисел.
+	--font-title: "Alegreya", serif;
 	--font-text: "Montserrat", sans-serif;
 	--font-numbers: "Cardo", serif;
 }

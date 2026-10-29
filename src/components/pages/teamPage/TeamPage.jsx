@@ -1,27 +1,26 @@
-import './teamPage.scss'; 
-import { useState, useEffect } from 'react'
-import { getAcf } from "../../services/service";
+import "./teamPage.scss";
+import { useState, useEffect } from 'react';
+import { getAcf } from '../../services/service';
 import TeamMember from './teamMember/TeamMember';
 
 const TeamPage = () => {
-	const [acf, setAcf] = useState([]);
+	const [acf, setAcf] = useState({});
 
+	// Тут завантажуємо заголовок. Самі картки майстрів формує компонент TeamMember.
 	useEffect(() => {
 		getAcf(2)
 			.then(setAcf)
 			.catch(console.error);
 	}, []);
 
-	const { 
-		team_title,
-	} = acf;
+	const { team_title } = acf;
 
 	return (
 		<section className="team section" id="team">
-			<h2 className='team__title title'>{team_title}</h2>
-			<TeamMember/>
+			<h2 className="team__title title">{team_title}</h2>
+			<TeamMember />
 		</section>
 	);
-}
+};
 
 export default TeamPage;

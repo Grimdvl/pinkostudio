@@ -1,9 +1,10 @@
-@mixin appear { 
-    opacity: 1;
-    visibility: visible;
+// Міксини для показу та приховування елементів через opacity і visibility.
+@mixin appear {
+	opacity: 1;
+	visibility: visible;
 }
 
-@mixin disappear { 
-    opacity: 0;
-    visibility: hidden;
+@mixin disappear {
+	opacity: 0;
+	visibility: hidden;
 }

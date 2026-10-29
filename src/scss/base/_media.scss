@@ -1,216 +1,231 @@
-// @media (hover: none) {
-
-// }
-
+// Адаптивні правила секцій. Умови max-width діють до вказаної ширини екрана.
 html {
-    font-size: 62.5%;
+	font-size: 62.5%;
 }
 
 @media (max-width: 1200px) {
-    html {
-        font-size: 55%;
-    }
-    .section {
-        padding: 8rem 4%;
-    }
-    .header {
-        width: 54%;
-        padding: 3rem 4% 0 4%;
-    }
-    .promo {
-        &__descr {
-            width: 54%;
-            padding: 15rem 4% 4rem;
-            &-title {
-                font-size: 3.5rem;
-            }
-            &-subtitle {
-                font-size: 1.9rem;
-            }
-        }
-        &__photo {
-            width: 46%;
-        }
-    }
-    .logo {
-        &__title {
-            font-size: 4rem;
-        }
-        &__subtitle {
-            font-size: 1.5rem;
-        }
-    }
-    .services {
-        padding: 0 4%;
-        &__items {
-            height: 48rem;
-        }
-    }
+	html {
+		font-size: 55%;
+	}
+	.section {
+		padding: 8rem 4%;
+	}
+	.promo {
+		&__descr {
+			width: 54%;
+			padding: 15rem 4% 4rem;
+			&-title {
+				font-size: 3.5rem;
+			}
+			&-subtitle {
+				font-size: 1.9rem;
+			}
+		}
+		&__photo {
+			width: 46%;
+		}
+	}
+	.logo {
+		&__title {
+			font-size: 4rem;
+		}
+		&__subtitle {
+			font-size: 1.5rem;
+		}
+	}
+	.services {
+		padding: 0 4%;
+		&__items {
+			height: 48rem;
+		}
+	}
+}
+
+@media (max-width: 1199px) {
+	.portfolio {
+		&__slider-shell {
+			padding-bottom: 72px;
+		}
+
+		&__slider {
+			padding: 0;
+
+			&-card {
+				aspect-ratio: 1 / .86;
+			}
+
+			.swiper-slide-active .portfolio__slider-card {
+				aspect-ratio: 1;
+			}
+
+			&-arrow {
+				top: auto;
+				bottom: 8px;
+				width: 40px;
+				height: 40px;
+				transform: none;
+
+				&--prev {
+					left: calc(50% - 100px);
+				}
+
+				&--next {
+					right: calc(50% - 100px);
+				}
+			}
+		}
+	}
 }
 
 @media (max-width: 991px) {
-    .services {
-        &__items {
-            height: 44rem;
-            width: 44%;
-            padding: 2.5rem;
-        }
-    }
-    .about {
-        &__text {
-            &-title {
-                font-size: 2.6rem;
-            }
-            &-descr {
-                font-size: 1.3rem;
-            }
-        }
-    }
-    .team {
-        &__members {
-            gap: 3rem;
-            &-wrapper {
-                width: 25rem;
-                height: 36rem;
-                .member__img-link {
-                    .bx-link {
-                        color: var(--color-main);
-                    }
-                }
-            }
-        }
-    }
+	.services {
+		&__items {
+			height: 44rem;
+			width: 44%;
+			padding: 2.5rem;
+		}
+	}
+	.about {
+		&__text {
+			&-title {
+				font-size: 2.6rem;
+			}
+			&-descr {
+				font-size: 1.3rem;
+			}
+		}
+	}
 }
 
 @media (max-width: 767px) {
-    .header {
-        width: 100%;
-        &__burger {
-            cursor: pointer;
-            position: absolute;
-            z-index: 4;
-            top: 2.2rem;
-            right: 4%;
-            height: 3rem;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            row-gap: .7rem;
-            &-menu {
-                display: block;
-                background-color: var(--color-white);
-                height: .3rem;
-                width: 3rem;
-                border-radius: .3rem;
-                transition: all .5s;
-            }
-            &.active &-menu:first-child {
-                transform: rotate(45deg);
-                position: relative;
-                top: 1rem;
-            }
-            &.active &-menu:nth-child(2) {
-                opacity: 0;
-            }
-            &.active &-menu:last-child {
-                transform: rotate(-45deg);
-                position: relative;
-                top: -1rem;
-            }
-        }
-        &__nav {
-                z-index: 3;
-                position: fixed;
-                background-color: var(--color-main);
-                top: 0;
-                right: -100%;
-                width: 100%;
-                height: 100vh;
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                transition: right .5s;
-            &.active {
-                right: 0;
-            }
-        }
-    }
-    .logo {
-        --w: .1rem;
-        --len: 7rem;
-        &__title {
-            font-size: 3rem;
-        }
-        &__subtitle {
-            font-size: 1rem;
-        }
-    }
-    .promo {
-        flex-direction: column;
-        &__descr {
-            padding: 13rem 4% 4rem;
-            padding-top: 2rem;
-            align-items: center;
-            width: 100%;
-            .logo {
-                height: 10rem;
-                width: 17rem;
-                align-self: self-start;
-                .logo__title {
-                    font-size: 5rem;
-                }
-                .logo__subtitle {
-                    font-size: 2rem;
-                }
-            }
-            &-title {
-                text-align: center;
-                align-self: center;
-            }
-            &-subtitle {
-                text-align: center;
-                align-self: center;
-            }
-            &-buttons {
-                flex-direction: column;
-                margin-bottom: 4.8rem;
-                margin-top: 3.2rem;
-            }
-        }
-        &__photo {
-            width: 100%;
-            &-img {
-                height: 40rem;
-            }
-        }
-    }
-    .services {
-        &__items {
-            height: 33rem;
-            width: 100%;
-            padding: 1.5rem;
-        }
-    }
-    .about {
-        padding: 5rem 4%;
-        flex-direction: column-reverse;
-        &__slider, &__text {
-            width: 100%;
-        }
-        &__slider {
-            height: 40rem;
-        }
-    }
-    .team {
-        &__members {
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-    }
+	.logo {
+		--w: .1rem;
+		--len: 7rem;
+		&__title {
+			font-size: 3rem;
+		}
+		&__subtitle {
+			font-size: 1rem;
+		}
+	}
+	.promo {
+		flex-direction: column;
+		&__descr {
+			padding: 13rem 4% 4rem;
+			padding-top: 2rem;
+			align-items: center;
+			width: 100%;
+			.logo {
+				height: 10rem;
+				width: 17rem;
+				align-self: self-start;
+				.logo__title {
+					font-size: 5rem;
+				}
+				.logo__subtitle {
+					font-size: 2rem;
+				}
+			}
+			&-title {
+				text-align: center;
+				align-self: center;
+			}
+			&-subtitle {
+				text-align: center;
+				align-self: center;
+			}
+			&-buttons {
+				flex-direction: column;
+				margin-bottom: 4.8rem;
+				margin-top: 3.2rem;
+			}
+		}
+		&__photo {
+			width: 100%;
+			&-img {
+				height: 40rem;
+			}
+		}
+	}
+	.services {
+		&__items {
+			height: 33rem;
+			width: 100%;
+			padding: 1.5rem;
+		}
+	}
+	.about {
+		padding: 5rem 4%;
+		flex-direction: column-reverse;
+		&__slider, &__text {
+			width: 100%;
+		}
+		&__slider {
+			height: 40rem;
+		}
+	}
+	.portfolio {
+		padding: 5rem 4%;
+
+		&__slider-shell {
+			--portfolio-card-width: min(calc(56.25vw + 75px), calc(100vw - 24px));
+			width: 100%;
+			margin-left: 0;
+		}
+
+		&__slider {
+			width: 100%;
+			max-width: none;
+			overflow: hidden;
+
+			.swiper-wrapper {
+				transition-duration: 0ms !important;
+			}
+
+			.swiper-slide-prev {
+				z-index: 1;
+
+				.portfolio__slider-card {
+					left: 100%;
+					transform: translateX(-77%) scale(.75);
+				}
+			}
+
+			.swiper-slide-next {
+				z-index: 3;
+
+				.portfolio__slider-card {
+					left: -100%;
+					transform: translateX(77%) scale(.75);
+				}
+			}
+
+			.swiper-slide-active {
+				z-index: 2;
+
+				.portfolio__slider-card {
+					left: 0;
+					aspect-ratio: auto;
+					transform: scale(1);
+				}
+			}
+
+			&-card {
+				position: relative;
+				left: 0;
+				width: var(--portfolio-card-width);
+				height: min(280px, var(--portfolio-card-width));
+				margin: 0 auto;
+				aspect-ratio: auto;
+				transform: scale(.75);
+				transition: none;
+			}
+		}
+	}
 }
 
 @media (max-width: 576px) {
-    html {
-        font-size: 50%;
-    }
+	html {
+		font-size: 50%;
+	}
 }

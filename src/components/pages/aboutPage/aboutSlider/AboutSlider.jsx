@@ -1,47 +1,50 @@
 import "./aboutSlider.scss";
-import { useState, useEffect } from 'react'
-import { getCat } from "../../../services/service";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Scrollbar, FreeMode, Mousewheel  } from "swiper/modules";
+import { useState, useEffect } from 'react';
+import { getCat } from '../../../services/service';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Scrollbar, FreeMode, Mousewheel } from 'swiper/modules';
 
 const AboutSlider = () => {
-	const [items, setItems] = useState([])
+	const [items, setItems] = useState([]);
 
+	// Кожен запис категорії about_slider стає окремим фото слайдера.
 	useEffect(() => {
 		getCat('about_slider')
 			.then(posts => {
-				const mapped = (Array.isArray(posts) ? posts : []).map(p => ({
-					id: p.id,
-					alt: p.slug,
-					img: p.acf?.about_img,
+				const mapped = (Array.isArray(posts) ? posts : []).map(post => ({
+					id: post.id,
+					alt: post.slug,
+					img: post.acf?.about_img,
 				}));
-				setItems(mapped);})
+
+				setItems(mapped);
+			})
 			.catch(console.error);
 	}, []);
 
 	return (
 		<Swiper
-			modules={[Scrollbar, FreeMode, Mousewheel ]}
+			modules={[Scrollbar, FreeMode, Mousewheel]}
 			scrollbar={{ draggable: true }}
-			slidesPerView={'auto'}
+			slidesPerView="auto"
 			freeMode={{ enabled: true, momentum: false }}
 			spaceBetween={20}
-			speed={500}
+			speed={350}
 			loop={false}
-			mousewheel={{ sensitivity: 2, releaseOnEdges: true}}
+			mousewheel={{ sensitivity: 3, releaseOnEdges: true }}
 			direction="horizontal"
 			className="about__slider"
 		>
-		{items.map((i) => (
-			<SwiperSlide key={i.id} className="about__slider-slide">
-				<img
-					src={i.img}
-					alt={i.alt}
-					loading="lazy"
-					className="about__slider-item"
-				/>
-			</SwiperSlide>
-		))}
+			{items.map(item => (
+				<SwiperSlide key={item.id} className="about__slider-slide">
+					<img
+						src={item.img}
+						alt={item.alt}
+						loading="lazy"
+						className="about__slider-item"
+					/>
+				</SwiperSlide>
+			))}
 		</Swiper>
 	);
 };

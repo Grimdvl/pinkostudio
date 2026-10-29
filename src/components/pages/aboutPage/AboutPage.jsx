@@ -1,18 +1,19 @@
 import "./aboutPage.scss";
-import { useState, useEffect } from 'react'
-import { getAcf } from "../../services/service";
-import AboutSlider from "./aboutSlider/AboutSlider";
+import { useState, useEffect } from 'react';
+import { getAcf } from '../../services/service';
+import AboutSlider from './aboutSlider/AboutSlider';
 
 const AboutPage = () => {
-	const [acf, setAcf] = useState([]);
+	const [acf, setAcf] = useState({});
 
+	// Заголовок і опис секції «Про нас» приходять із головної сторінки WordPress.
 	useEffect(() => {
 		getAcf(2)
 			.then(setAcf)
 			.catch(console.error);
 	}, []);
 
-	const { 
+	const {
 		about_title,
 		about_descr,
 	} = acf;
